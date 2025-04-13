@@ -1,0 +1,9 @@
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\bin\Debug\BusnessLayer.dll
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\bin\Debug\BusnessLayer.pdb
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\obj\Debug\BusnessLayer.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\obj\Debug\BusnessLayer.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\obj\Debug\BusnessL.14DD4A42.Up2Date
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\obj\Debug\BusnessLayer.dll
+C:\Users\USER\Documents\HotelManagementSystem\BusnessLayer\obj\Debug\BusnessLayer.pdb

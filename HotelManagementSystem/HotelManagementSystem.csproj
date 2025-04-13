@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87E6B5B1-AC19-48F6-9757-76AF3C2BCCA2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HotelManagementSystem</RootNamespace>
+    <AssemblyName>HotelManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\Desktop\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Desktop\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.9.1.0\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=9.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.1.0\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.8.0.1\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MigraDoc.DocumentObjectModel, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.BarCodes, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.BarCodes.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Cryptography, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Quality, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.Quality.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Shared, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.0-preview-3\lib\netstandard2.0\PdfSharp.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Snippets, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.Snippets.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.System, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.System.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.WPFonts, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.1.1\lib\netstandard2.0\PdfSharp.WPFonts.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clscryptography.cs" />
+    <Compile Include="Classes\clsGlobal.cs" />
+    <Compile Include="Classes\clsOtils.cs" />
+    <Compile Include="Classes\clsRegistryAndLog.cs" />
+    <Compile Include="Classes\OnEmployeeInfoUpdatedEventArgs.cs" />
+    <Compile Include="Classes\OnSaveClickedAddedUSerEventArgs.cs" />
+    <Compile Include="Dashboard\frmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\frmDashBoard.Designer.cs">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ctrlAddEmployeeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\ctrlAddEmployeeInfo.Designer.cs">
+      <DependentUpon>ctrlAddEmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ctrlEmployeeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\ctrlEmployeeCard.Designer.cs">
+      <DependentUpon>ctrlEmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ctrlFindEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\ctrlFindEmployee.Designer.cs">
+      <DependentUpon>ctrlFindEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmAddOrUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmAddOrUpdateEmployee.Designer.cs">
+      <DependentUpon>frmAddOrUpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmEmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmEmployeeDetails.Designer.cs">
+      <DependentUpon>frmEmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmEmployesRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmEmployesRoles.Designer.cs">
+      <DependentUpon>frmEmployesRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmManageEmployee.Designer.cs">
+      <DependentUpon>frmManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guests\frmAddNewGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guests\frmAddNewGuest.Designer.cs">
+      <DependentUpon>frmAddNewGuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guests\frmManageGuests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guests\frmManageGuests.Designer.cs">
+      <DependentUpon>frmManageGuests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guests\frmSelectGuests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guests\frmSelectGuests.Designer.cs">
+      <DependentUpon>frmSelectGuests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loggin\FrmLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loggin\FrmLoginForm.Designer.cs">
+      <DependentUpon>FrmLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="orders\ctrlOrderInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="orders\ctrlOrderInfo.Designer.cs">
+      <DependentUpon>ctrlOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="orders\frmAllOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="orders\frmAllOrders.Designer.cs">
+      <DependentUpon>frmAllOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payement\frmAllPayements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payement\frmAllPayements.Designer.cs">
+      <DependentUpon>frmAllPayements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payement\frmManagePayements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payement\frmManagePayements.Designer.cs">
+      <DependentUpon>frmManagePayements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\ctrlFindAndPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\ctrlFindAndPersonCard.Designer.cs">
+      <DependentUpon>ctrlFindAndPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\ctrlFindPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\ctrlFindPerson.Designer.cs">
+      <DependentUpon>ctrlFindPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddOrUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddOrUpdatePerson.Designer.cs">
+      <DependentUpon>frmAddOrUpdatePerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmManagePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmManagePeople.Designer.cs">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\ctrlPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\ctrlPersonCard.Designer.cs">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmSelectPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmSelectPerson.Designer.cs">
+      <DependentUpon>frmSelectPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmShowPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmShowPersonDetails.Designer.cs">
+      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservations\ctrlReservationDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservations\ctrlReservationDetails.Designer.cs">
+      <DependentUpon>ctrlReservationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmAddNewReservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmAddNewReservations.Designer.cs">
+      <DependentUpon>frmAddNewReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmCheckInAndSelectPAyementMEthod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmCheckInAndSelectPAyementMEthod.Designer.cs">
+      <DependentUpon>frmCheckInAndSelectPAyementMEthod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmExtendForAnotherDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmExtendForAnotherDate.Designer.cs">
+      <DependentUpon>frmExtendForAnotherDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmReservationDetatils.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmReservationDetatils.Designer.cs">
+      <DependentUpon>frmReservationDetatils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmReservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmReservations.Designer.cs">
+      <DependentUpon>frmReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\frmTicketInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmTicketInfo.Designer.cs">
+      <DependentUpon>frmTicketInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\frmManageRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rooms\frmManageRooms.Designer.cs">
+      <DependentUpon>frmManageRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\frmManageRoomsCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rooms\frmManageRoomsCategory.Designer.cs">
+      <DependentUpon>frmManageRoomsCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmAddOrUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddOrUpdateUser.Designer.cs">
+      <DependentUpon>frmAddOrUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmChangeUserName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmChangeUserName.Designer.cs">
+      <DependentUpon>frmChangeUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.Designer.cs">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserDetails.Designer.cs">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrlAddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrlAddUser.Designer.cs">
+      <DependentUpon>ctrlAddUser.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dashboard\frmDashBoard.resx">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\ctrlAddEmployeeInfo.resx">
+      <DependentUpon>ctrlAddEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\ctrlEmployeeCard.resx">
+      <DependentUpon>ctrlEmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\ctrlFindEmployee.resx">
+      <DependentUpon>ctrlFindEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmAddOrUpdateEmployee.resx">
+      <DependentUpon>frmAddOrUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmEmployeeDetails.resx">
+      <DependentUpon>frmEmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmEmployesRoles.resx">
+      <DependentUpon>frmEmployesRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmManageEmployee.resx">
+      <DependentUpon>frmManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guests\frmAddNewGuest.resx">
+      <DependentUpon>frmAddNewGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guests\frmManageGuests.resx">
+      <DependentUpon>frmManageGuests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guests\frmSelectGuests.resx">
+      <DependentUpon>frmSelectGuests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loggin\FrmLoginForm.resx">
+      <DependentUpon>FrmLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="orders\ctrlOrderInfo.resx">
+      <DependentUpon>ctrlOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="orders\frmAllOrders.resx">
+      <DependentUpon>frmAllOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payement\frmAllPayements.resx">
+      <DependentUpon>frmAllPayements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payement\frmManagePayements.resx">
+      <DependentUpon>frmManagePayements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\ctrlFindAndPersonCard.resx">
+      <DependentUpon>ctrlFindAndPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\ctrlFindPerson.resx">
+      <DependentUpon>ctrlFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddOrUpdatePerson.resx">
+      <DependentUpon>frmAddOrUpdatePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmManagePeople.resx">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\ctrlPersonCard.resx">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmSelectPerson.resx">
+      <DependentUpon>frmSelectPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmShowPersonDetails.resx">
+      <DependentUpon>frmShowPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reservations\ctrlReservationDetails.resx">
+      <DependentUpon>ctrlReservationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmAddNewReservations.resx">
+      <DependentUpon>frmAddNewReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmCheckInAndSelectPAyementMEthod.resx">
+      <DependentUpon>frmCheckInAndSelectPAyementMEthod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmExtendForAnotherDate.resx">
+      <DependentUpon>frmExtendForAnotherDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmReservationDetatils.resx">
+      <DependentUpon>frmReservationDetatils.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmReservations.resx">
+      <DependentUpon>frmReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations\frmTicketInfo.resx">
+      <DependentUpon>frmTicketInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\frmManageRooms.resx">
+      <DependentUpon>frmManageRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\frmManageRoomsCategory.resx">
+      <DependentUpon>frmManageRoomsCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrlAddUser.resx">
+      <DependentUpon>ctrlAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddOrUpdateUser.resx">
+      <DependentUpon>frmAddOrUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmChangeUserName.resx">
+      <DependentUpon>frmChangeUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmManageUsers.resx">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserDetails.resx">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusnessLayer\BusnessLayer.csproj">
+      <Project>{1749cbdc-2b4a-4639-8b85-8b5dda1d25b4}</Project>
+      <Name>BusnessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-15 110048.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-15 111733.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adobe Express - file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_white_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-15 115955.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-52 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-52 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-02-15_123103-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-username-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-closed-eye-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-02-15_161348-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-rounded-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserManBlank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-up-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-down-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-notification-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hand-peace-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-02-16_111100-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\299092_calendar_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-02-16_112534-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guests.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-travel-portal-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-employees-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-businessman-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-users-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-users-settings-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-account-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage People.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9453898.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Number 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-id-verified-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-passport-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gender-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-identity-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-earth-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-phone-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-name-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WomanBlank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Man 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Woman 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-profile-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-more-info-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-account-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7398187.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-19 150754.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-19 152003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-call-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-call-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-permanent-job-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-salary-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-person-calendar-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-job-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-date-to-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-contacts-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-client-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1180410208-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-salary-401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-salary-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-role-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-date-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-end-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-end-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pay-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-02-19 150514.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-stop-gesture-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hibernate-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-username-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-file-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-keys-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-category-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5102089.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4860540.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-occupied-bed-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-tag-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-online-maintenance-portal-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-check-mark-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reception-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128-1286958_crowd-clipart-person-icon-group-people-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15748843.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10337440.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Serveces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-date-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-time-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-room-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-instagram-check-mark-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-check-out-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-information-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dc139ffdf87e0bfe4b53f1afc7126e34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51c395b2f02d431bede033db795c3b60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparent-credit-card-65b26beda31da9.4982493717061918536681.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9420097cf13df8dfb7bcb7b5db3607dd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-extend-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ticket-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BaggageImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-03-11 192558.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2025-03-11 231053.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-person-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-whose-quest-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\m2i8i8d3H7i8b1N4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-properties-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9131872.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ce179d7e95f658f0cff8873a74037c33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cursor-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparent-mustache-man-walking-with-luggage-in-orange-jacket661522b6008d41.15034630.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airport-check-in-clipart-lg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-statistics-report-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Top-10-Payment-Gateways-Devathon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-previous-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-next-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dining-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-expand-arrow-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-expand-arrow-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-vertical-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-vertical-20.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
