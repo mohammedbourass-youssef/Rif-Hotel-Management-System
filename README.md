@@ -65,6 +65,9 @@
        <add name="constr" connectionString="Data Source=.;Initial Catalog=HotelDB;Integrated Security=True" />
    </connectionStrings>
    ```
+   4.5. **move 'HotelManagementSystemDB.bak' to C drive and execute his Query in SQL server :**
+   ```bash
+   RESTORE DATABASE HotelManagementSystemDB FROM DISK = 'C:/HotelManagementSystemDB.bak' 
 
 5. **Run the Project:**
    - Build the solution and press `F5` or click `Start` to run the application.
