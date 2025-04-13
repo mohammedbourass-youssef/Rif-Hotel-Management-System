@@ -123,7 +123,7 @@ This project is licensed under the **MIT License**. You are free to use, modify,
 ## 📬 Contact
 
 **Developer:** Mohammed Bourass Youssef  
-📧 **Email:** your-email@example.com  
+📧 **Email:** srx.mbrs2004@gmail.com
 🌐 **GitHub:** [mohammedbourass-youssef](https://github.com/mohammedbourass-youssef)
 
 ---
