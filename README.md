@@ -127,6 +127,3 @@ This project is licensed under the **MIT License**. You are free to use, modify,
 🌐 **GitHub:** [mohammedbourass-youssef](https://github.com/mohammedbourass-youssef)
 
 ---
-```
-
-You can now copy and paste this code into a `README.md` file in your GitHub repository or project folder. Let me know if you'd like to generate a downloadable file or need help updating your GitHub repo!
