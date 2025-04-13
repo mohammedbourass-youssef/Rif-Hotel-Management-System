@@ -1,6 +1,3 @@
-Sure! Here's your content formatted as raw Markdown code suitable for a `README.md` file:
-
-```markdown
 # Rif Hotel Management System
 
 ## Table of Contents
@@ -50,7 +47,7 @@ Sure! Here's your content formatted as raw Markdown code suitable for a `README.
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/mohammedbourass-youssef/Rif-Hotel-Management-System.git
-   ```
+
 
 2. **Open the Project:**
    - Open the `.sln` file in Visual Studio.
